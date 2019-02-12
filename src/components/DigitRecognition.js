@@ -4,7 +4,7 @@ import SubHeader from './SubHeader';
 
 const DigitRecognition = () => {
     return (
-        <div>
+        <div className="transition-item list-page">
             <SubHeader subTitle="Digit Recognition"/>
             <Drawing />
         </div>

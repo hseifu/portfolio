@@ -89,7 +89,7 @@ class TicTacToe extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="transition-item list-page">
                 <SubHeader subTitle="Tic-Tac-Toe"/>
                 <div className="game">
                     {this.state.userState ? 

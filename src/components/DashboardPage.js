@@ -1,10 +1,11 @@
 import React from 'react';
-import Header from './Header';
+import SubHeader from './SubHeader';
 
-const IndecisionApp = () => (
-    <div>
-        <div className="container">
-            <h2 className="container__title">Henok Seifu</h2>
+
+const Dashboard = () => (
+    <div className="transition-item list-page">
+        <SubHeader subTitle="Henok Seifu"/>
+        <div className="content-container">
             <div>
                 <p>Computer Sceince student at Jacobs University Bremen</p>
             </div>
@@ -16,4 +17,4 @@ const IndecisionApp = () => (
     </div>
 )
 
-export default IndecisionApp;
+export default Dashboard;

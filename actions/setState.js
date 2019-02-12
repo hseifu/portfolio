@@ -1,7 +1,11 @@
 import database from '../firebase/firebase';
 
 export default (state, userState, userId) => {
-    database.ref(userId + '/game/').set('');
+    const setObj = {}
+    setObj[userId] = ''
+    database.ref('').set(setObj).then(() => {
+        return database.ref(userId + '/game/').set('');
+    })
     console.log("to write state: ", state)
     database.ref(userId + '/game/gameState/state').set('play');
     database.ref(userId + '/game/gameState/lastmove').set('');
