@@ -1,28 +1,25 @@
 import database from '../firebase/firebase';
 
-export default (state, userState, userId) => {
-    const setObj = {}
-    setObj[userId] = ''
-    database.ref('').set(setObj).then(() => {
-        return database.ref(userId + '/game/').set('');
-    })
+export default (state, userState,  ) => {
+    database.ref('/game/').set('');
+
     console.log("to write state: ", state)
-    database.ref(userId + '/game/gameState/state').set('play');
-    database.ref(userId + '/game/gameState/lastmove').set('');
+    database.ref('/game/gameState/state').set('play');
+    database.ref('/game/gameState/lastmove').set('');
     if(userState) {
         Object.keys(state).forEach((key) => {
             if(parseInt(key) && state[parseInt(key)]) {
                 const updateObj = {}
                 updateObj[key.toString()] = state[key]; 
-                database.ref(userId + '/game/userState').set(userState)
+                database.ref('/game/userState').set(userState)
                 .then(() => {
-                    return database.ref(userId + '/game/turn/').set(`${state["turn"]}`);
+                    return database.ref('/game/turn/').set(`${state["turn"]}`);
                 })
                 .then(() => {
-                    return database.ref(userId + '/game/values/').update(updateObj);
+                    return database.ref('/game/values/').update(updateObj);
                 })
                 .then(() => {
-                    return database.ref(userId + '/game/gameState/').set(`${state["gameState"]}`)
+                    return database.ref('/game/gameState/').set(`${state["gameState"]}`)
                 })
             }
         })
