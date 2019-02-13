@@ -25,8 +25,6 @@ const initialState = {
 class TicTacToe extends React.Component {    
     state = initialState;
     componentDidUpdate() {
-        
-        console.log('now:', this.state);
         const json = JSON.stringify(this.state);
         localStorage.setItem('state',json);
     }
@@ -34,7 +32,6 @@ class TicTacToe extends React.Component {
         try {
             const json = localStorage.getItem('state');
             const state = JSON.parse(json);
-            console.log("retrieved", state);
             if(state){
                 this.setState(() => ({...state}));
                 const chosenChar = state.userState;
@@ -64,20 +61,13 @@ class TicTacToe extends React.Component {
         
         addState(position, this.state.userState).then((value) => {
             if (value) {
-                console.log("got", value);
-            
-            
                 const newObj = {};
-                
                 newObj[value] = this.state.userState == 'X' ? 'O' : 'X';
-                
                 this.setState(() => (newObj));
                 this.setState(() => ({turn: 'user'}));
             }
             else {
-                
                 checkTerminate().then(({gameState, lastMove}) => {
-                    console.log('game terminated', gameState, lastMove);
                     const lastMoveMade = {};
                     lastMoveMade[lastMove] = this.state.userState == 'X' ? 'O' : 'X';
                     this.setState(() => ({gameState, ...lastMoveMade }))
@@ -93,8 +83,8 @@ class TicTacToe extends React.Component {
                 <SubHeader subTitle="Tic-Tac-Toe"/>
                 <div className="game">
                     {this.state.userState ? 
-                    <div>
-                        <div className="row-1">
+                    <div className="board">
+                        <div className="row row-1">
                             <div className="cell-1">
                                 <Square userState={this.state.userState} curValue={this.state[1]} handlePick={this.handlePick} disable={!!this.state[1] || this.state.turn !== "user" || this.state.gameState !== "play"} value={1}/>
                             </div>
@@ -105,7 +95,7 @@ class TicTacToe extends React.Component {
                                 <Square userState={this.state.userState} curValue={this.state[3]} handlePick={this.handlePick} disable={!!this.state[3] || this.state.turn !== "user" || this.state.gameState !== "play"} value={3}/>
                             </div>
                         </div>
-                        <div className="row-2">
+                        <div className="row row-2">
                             <div className="cell-1">
                                 <Square userState={this.state.userState} curValue={this.state[4]} handlePick={this.handlePick} disable={!!this.state[4] || this.state.turn !== "user" || this.state.gameState !== "play"} value={4}/>
                             </div>
@@ -116,7 +106,7 @@ class TicTacToe extends React.Component {
                                 <Square userState={this.state.userState} curValue={this.state[6]} handlePick={this.handlePick} disable={!!this.state[6] || this.state.turn !== "user" || this.state.gameState !== "play"} value={6}/>
                             </div>
                         </div>
-                        <div className="row-3">
+                        <div className="row row-3">
                             <div className="cell-1">
                                 <Square userState={this.state.userState} curValue={this.state[7]} handlePick={this.handlePick} disable={!!this.state[7] || this.state.turn !== "user" || this.state.gameState !== "play"} value={7}/>
                             </div>
@@ -127,11 +117,14 @@ class TicTacToe extends React.Component {
                                 <Square userState={this.state.userState} curValue={this.state[9]} handlePick={this.handlePick} disable={!!this.state[9] || this.state.turn !== "user" || this.state.gameState !== "play"} value={9}/>
                             </div>
                         </div>
+                        <button className="reset" onClick={this.resetGame}>
+                        Reset
+                        </button>
                     </div> :
                     <GameHeader chooseCharacter={this.chooseCharacter}/>
                     }
-                    {this.state.gameState !== "play" ? this.state.gameState === "lost" ? <div> You lost <button onClick={this.resetGame}> Play Again </button></div> : <div> Game is Draw <button onClick={this.resetGame}> Play Again </button></div> : undefined}
-
+                    {this.state.gameState !== "play" ? this.state.gameState === "lost" ? <div className="message"> You lost <button onClick={this.resetGame} className="reset"> Play Again </button></div> : <div> Game is Draw <button onClick={this.resetGame}> Play Again </button></div> : undefined}
+                    
                 </div>
             </div>
         )

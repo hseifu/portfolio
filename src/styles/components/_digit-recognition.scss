@@ -1,0 +1,16 @@
+.digit-recognizer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-drawing {
+    border: dimgray solid 3px;
+    border-radius: 2.5px;
+
+}
+
+.buttons {
+    margin-bottom: $s-size;
+}

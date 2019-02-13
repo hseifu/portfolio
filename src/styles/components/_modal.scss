@@ -4,7 +4,7 @@
 
 .ReactModalPortal > .ReactModal__Overlay {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     transition: opacity 200ms ease-in-out;
 }

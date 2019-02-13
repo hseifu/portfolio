@@ -13,7 +13,7 @@ const MessageModal = (props) => (
         <h3 className="modal__title">Sorry</h3>
         {props.message && <p className="modal__body">{props.message}</p>}
         <button className="button" onClick={props.handleClearMessage}>okay</button>
-        <a className="button-link" href="https://github.com/hseifu/Machine_Learning/tree/master/NeuralNet_Python">Checkout on GitHub</a>
+        <a className="button__link" href="https://github.com/hseifu/Machine_Learning/tree/master/NeuralNet_Python">GitHub</a>
     </Modal>
 )
 

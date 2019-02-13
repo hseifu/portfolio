@@ -21,7 +21,10 @@ class Drawing extends React.Component {
     render() {
       return (
         <div>
-          <div >
+
+        
+        <div className="digit-recognizer">
+          <div className="buttons">
             <button
               onClick={() => {
                 localStorage.setItem(
@@ -57,7 +60,6 @@ class Drawing extends React.Component {
             <button
               onClick={() => {
                 const imgUrl = this.saveableCanvas.canvasContainer.children[1].toDataURL("image/png");
-                console.log(imgUrl);
                 upload(imgUrl);
               }}
             >
@@ -76,28 +78,32 @@ class Drawing extends React.Component {
               Predict
             </button>
           </div>
-          
-          <CanvasDraw
-            ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
-            brushColor="#777"
-            hidegrid={false}
-            background
-            brushRadius={this.state.brushRadius}
-            lazyRadius={this.state.lazyRadius}
-            canvasWidth={this.state.width}
-            canvasHeight={this.state.height}
-            gridColor="#F7F7F7"
-            saveData={localStorage.getItem("savedDrawing")}
-            back
-          />
+
+          <div className="canvas-drawing">
+
+            <CanvasDraw
+              ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
+              brushColor="#777"
+              hidegrid={false}
+              background
+              brushRadius={this.state.brushRadius}
+              lazyRadius={this.state.lazyRadius}
+              canvasWidth={this.state.width}
+              canvasHeight={this.state.height}
+              gridColor="#F7F7F7"
+              saveData={localStorage.getItem("savedDrawing")}
+              back
+            />
+          </div>
+          </div>
           <MessageModal
             message={this.state.message}
             showMessage={this.state.showMessage}
             handleClearMessage={this.handleClearMessage}
           />
 
-
         </div>
+        
       );
     }
   }

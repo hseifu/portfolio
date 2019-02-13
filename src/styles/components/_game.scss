@@ -1,0 +1,52 @@
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.square {
+    
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.square, .tile, .reset  {
+    min-width: 50px;
+    margin: $s-size;
+    padding: 30px;
+    border-radius: 5px;
+    background: $off-white;
+    border: none;
+    &:hover {
+        background: darken($color: $off-white, $amount: 20%)
+    }
+}
+
+button, .button__link{
+    text-decoration: none;
+    color: $grey;
+    margin: $xs-size;
+    border-radius: 5px;
+    background: $off-white;
+    padding: 10px;
+    border: none;
+    &:hover {
+        background: darken($color: $off-white, $amount: 20%)
+    }
+
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

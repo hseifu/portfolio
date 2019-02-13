@@ -2,8 +2,6 @@ import database from '../firebase/firebase';
 
 export default (state, userState,  ) => {
     database.ref('/game/').set('');
-
-    console.log("to write state: ", state)
     database.ref('/game/gameState/state').set('play');
     database.ref('/game/gameState/lastmove').set('');
     if(userState) {
