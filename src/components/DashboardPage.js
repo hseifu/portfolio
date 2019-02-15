@@ -30,7 +30,7 @@ const Dashboard = () => (
                     </a>
                 </li>
                 <li>
-                    <a href="./files/cv.pdf" download >
+                    <a href="./files/Henok_CV.pdf" download >
                     <FaDownload/>
                     </a>
                 </li>
