@@ -100,6 +100,7 @@ class Drawing extends React.Component {
             message={this.state.message}
             showMessage={this.state.showMessage}
             handleClearMessage={this.handleClearMessage}
+            url={"https://github.com/hseifu/Machine_Learning/tree/master/NeuralNet_Python"}
           />
 
         </div>

@@ -4,9 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Header = (props) => {
     return (
     <div className="header transition-item">
-        <NavLink className="header__title" to='/' activeClassName="header__active" exact >
-        <div className="my_img"> </div>
-        </NavLink>
         <div className="header__item">
             <NavLink className="header__title" to='/projects' activeClassName="header__active" exact>
                 <h1>Projects</h1>

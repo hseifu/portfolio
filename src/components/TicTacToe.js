@@ -5,6 +5,7 @@ import addState from '../../actions/addState';
 import setState from '../../actions/setState';
 import checkTerminate from '../../actions/checkTerminate';
 import SubHeader from './SubHeader';
+import MessageModal from './MessageModal';
 
 const initialState = {
     '1': '',
@@ -19,7 +20,9 @@ const initialState = {
     userState: '',
     turn: 'user',
     gameState: 'play',
-    userId: parseInt(Math.random() * 1000)
+    userId: parseInt(Math.random() * 1000),
+    showMessage: true,
+    message: "This feature is coming soon"
 }
 
 class TicTacToe extends React.Component {    
@@ -77,6 +80,12 @@ class TicTacToe extends React.Component {
         });
         
     }
+
+    handleClearMessage = () => {
+        history.back();
+    }
+    
+
     render() {
         return (
             <div className="transition-item list-page">
@@ -126,6 +135,12 @@ class TicTacToe extends React.Component {
                     {this.state.gameState !== "play" ? this.state.gameState === "lost" ? <div className="message"> You lost <button onClick={this.resetGame} className="reset"> Play Again </button></div> : <div> Game is Draw <button onClick={this.resetGame}> Play Again </button></div> : undefined}
                     
                 </div>
+                <MessageModal
+                    message={this.state.message}
+                    showMessage={this.state.showMessage}
+                    handleClearMessage={this.handleClearMessage}
+                    url={"https://github.com/hseifu/tic-tac-toe/blob/master/tct.py"}
+                />
             </div>
         )
     }

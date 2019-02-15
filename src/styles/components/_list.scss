@@ -34,11 +34,17 @@
     }
 }
 
+.list-item__main-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .list-item--message {
     align-items: center;
     justify-content: center;
     color: $grey;
-    padding: $m-size;
+    padding-top: $m-size;
     &:hover{
         background: none;
     }

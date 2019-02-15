@@ -14,7 +14,7 @@ import Career from '../components/Career';
 import TicTacToe from '../components/TicTacToe';
 import DigitRecognition from '../components/DigitRecognition';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import PageTransition from "react-router-page-transition";
+import DashboardHeader from '../components/DashboardHeader';
 
 export const history = createHistory();
 
@@ -28,7 +28,7 @@ class AppRouter extends React.Component  {
         const { match, location, history } = this.props;
             return (
                 <div className="main-content">
-                    <Header />
+                    {location.pathname == '/' ? <DashboardHeader/> : <Header />}
                         <TransitionGroup className="transition-group">
                             <CSSTransition
                             key={location.key}
