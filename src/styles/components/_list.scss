@@ -71,3 +71,15 @@
         padding-left: $s-size;
     }
 }
+
+.hide-mobile {
+    @media (max-width: $desktop-breakpoint) {
+        visibility: hidden;
+    }
+}
+
+.hide-desktop {
+    @media (min-width: $desktop-breakpoint) {
+        visibility: hidden;
+    }
+}

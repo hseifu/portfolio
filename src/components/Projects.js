@@ -10,10 +10,10 @@ const Projects = () => (
             <h3>Here are some projects I have worked on in the past couple of years</h3>
             <div className="list">
                 <div className="list-header">
-                    <div>
-                        Project Name
+                    <div className="hide-mobile">
+                        Project
                     </div>
-                    <div>
+                    <div className="hide-mobile">
                         Last Updated
                     </div>
                 </div>

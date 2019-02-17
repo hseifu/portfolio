@@ -10,7 +10,7 @@ const Academics = () => (
                     <div>
                         Institution
                     </div>
-                    <div>
+                    <div className="hide-mobile">
                         Duration
                     </div>
                 </div>

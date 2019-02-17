@@ -1,6 +1,5 @@
 import React from 'react';
-import {Switch, Router} from 'react-router-dom';
-import styled from "styled-components";
+import {Switch} from 'react-router-dom';
 import {withRouter} from 'react-router';
 import PropTypes from "prop-types";
 import createHistory from 'history/createBrowserHistory'

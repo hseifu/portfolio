@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import SubHeader from './SubHeader';
 
 const Career = () => (
@@ -11,7 +10,7 @@ const Career = () => (
                     <div>
                         Company
                     </div>
-                    <div>
+                    <div className="hide-mobile">
                         Duration
                     </div>
                 </div>

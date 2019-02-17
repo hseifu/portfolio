@@ -9,13 +9,12 @@
     
     
     background-color: rgb(165, 197, 238);
-    // @media (max-width: $desktop-breakpoint) {
-    //     justify-content: left;
-    //     align-items: center;
-    //     flex-direction: column;
-    //     max-width: $m-size;
-    //     font-size: $s-size;
-    // }
+    @media (max-width: $desktop-breakpoint) {
+        align-items: flex-start;
+        flex-direction: row;
+        font-size: $s-size;
+        padding: 0;
+    }
     
 }
 
@@ -36,7 +35,10 @@
 
 .header__title {
     text-decoration: none;
-    color: $dark-blue
+    color: $dark-blue;
+    @media (max-width: $desktop-breakpoint) {
+        font-size: $font-size-small;
+    }
 }
 
 .header__active {
@@ -45,15 +47,46 @@
 }
 
 .header__item {
-    padding: 0 $s-size;
+    padding: 0;
+    
 }
 
 .sub-header{
     padding: $l-size;
-   
+    @media (max-width: $desktop-breakpoint) {
+        padding: $s-size;
+    }
 }
 
 .sub-header__title {
     color: $dark-blue;
     margin: 0;
+    
+}
+
+.header__title h1 {
+    margin: 0;
+}
+
+#tabs {
+    display: none;
+    
+}
+
+.desktop-navbar {
+    @media (max-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+.mobile-navbar {
+    @media (min-width: $desktop-breakpoint) {
+        display: none;
+    }
+}
+
+.icon {
+    position: absolute;
+    right: 0;
+
 }
